@@ -1,7 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 function App() {
+  const auth = async () => {
+    const res = await axios.get('http://localhost:5000/api/facebook/')
+    console.log(res.data);
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -11,9 +16,7 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          onClick={auth}
         >
           Learn React
         </a>
