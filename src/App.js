@@ -1,26 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
+import HomePage from './Pages/Home/HomePage';
 
 function App() {
-  const auth = async () => {
-    const res = await axios.get('http://localhost:5000/api/facebook/')
-    console.log(res.data);
-  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          onClick={auth}
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='Circle1'></div>
+      <div className='Circle2'></div>
+      <div className='app-content'>
+        <div className="app-box glass">
+          <HomePage />
+        </div>
+      </div>
     </div>
   );
 }
