@@ -1,17 +1,20 @@
 import './App.css';
-import HomePage from './Pages/Home/HomePage';
+import { BrowserRouter as Router } from 'react-router-dom'
+import Routes from './routes/Routes';
 
 function App() {
   return (
-    <div className="App">
-      <div className='Circle1'></div>
-      <div className='Circle2'></div>
-      <div className='app-content'>
-        <div className="app-box glass">
-          <HomePage />
+    <Router>
+      <div className="App">
+        <div className='Circle1'></div>
+        <div className='Circle2'></div>
+        <div className='app-content'>
+          <div className="app-box glass">
+            <Routes/>
+          </div>
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

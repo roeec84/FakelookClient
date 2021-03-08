@@ -1,5 +1,8 @@
 .homepage{
-    display: flex;
     width: 100%;
-    justify-content: center;
+    display: flex;
+}
+
+.logged-in{
+    justify-content: flex-start;
 }
