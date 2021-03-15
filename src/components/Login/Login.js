@@ -1,9 +1,9 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { Button, Input, Message } from 'semantic-ui-react';
 import { userAtom } from '../../atoms/atoms';
+import httpService from '../../http/httpService';
 import './Login.css'
 
 const Login = () => {
@@ -14,7 +14,7 @@ const Login = () => {
 
     const handleLogin = async () => {
         setLoading(true)
-        let res = await axios.post('http://localhost:5000/api/login', {
+        let res = await httpService.post('/api/login', {
             username: user.username,
             password: user.password
         })
@@ -26,6 +26,7 @@ const Login = () => {
             setLoading(false)
             setUserState(res.data.user)
             localStorage.setItem('token', res.data.token);
+            httpService.defaults.headers['x-auth-token'] = res.data.token;
         }
     }
     return (
