@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { Message, Button, Input } from 'semantic-ui-react';
 import { userAtom } from '../../atoms/atoms';
+import httpService from '../../http/httpService';
 import './Register.css'
 
 const Register = () => {
@@ -32,6 +33,7 @@ const Register = () => {
             setLoading(false)
             setMessage(null)
             localStorage.setItem('token', res.data.token);
+            httpService.defaults.headers['x-auth-token'] = res.data.token;
             setUserState(res.data.user);
             history.push('/')
         }

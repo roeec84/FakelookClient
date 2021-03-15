@@ -7,6 +7,10 @@
     font-family: Roboto;
 }
 
+body{
+    max-height: 100vh;
+}
+
 .App {
     min-height: 100vh;
     background: linear-gradient(to right top, #814CD9, #BD61F0, #CE4CD9, #F857BE);
